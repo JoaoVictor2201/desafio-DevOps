@@ -3,8 +3,6 @@ name: Github Actions CI
 on:
   push:
     branches: ["main"]
-  pull_request:
-    branches: ["main"]
 
 jobs:
   build:
@@ -57,6 +55,6 @@ jobs:
 
       - name: Vercel Deploy
         env:
-          VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}   # <- Aqui você coloca o token criado no GitHub Secrets
+          VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
         run: |
           vercel --prod --token $VERCEL_TOKEN --confirm
