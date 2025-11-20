@@ -22,9 +22,9 @@ class APITestCase(unittest.TestCase):
         self.assertIsInstance(response.json['items'], list)
 
     def test_swagger_ui_accessible(self):
-        response = self.client.get('/items')
+        response = self.client.get('/swagger/')
         self.assertEqual(response.status_code, 200)
-        self.assertIn(b'item1', response.data)
+        self.assertIn(b'Swagger UI', response.data)
 
 if __name__ == '__main__':
     unittest.main()
